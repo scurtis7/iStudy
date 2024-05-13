@@ -1,0 +1,5 @@
+# Application properties
+
+spring:
+  application:
+    name: is-server
