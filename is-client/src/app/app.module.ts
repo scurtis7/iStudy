@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { MaterialModule } from "./common/material.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
