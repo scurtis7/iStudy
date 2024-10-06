@@ -1,0 +1,38 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/common";
+
+.drop-down-container {
+  display: grid;
+  grid-template-columns: 70px 150px;
+  grid-template-rows: auto;
+}
+
+.dropdown-font {
+  height: 30px;
+  font-size: 14px;
+  color: $is-blue-3;
+}
+
+.title {
+  align-self: center;
+  color: $is-blue-3;
+}
+
+.category-container {
+  margin-top: 10px;
+  width: 700px;
+  padding: 10px;
+  border: 1px solid $is-teal-3;
+  background-color: $is-teal-1;
+}
+
+.paragraph-text {
+  font-size: 16px;
+  color: $is-blue-3;
+}
+
+.highlight {
+  font-weight: bold;
+  color: $is-teal-9;
+}
+

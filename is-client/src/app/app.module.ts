@@ -9,9 +9,12 @@ import { FormsModule } from "@angular/forms";
 import { MaterialModule } from "./common/material.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
+import { StudyTypesComponent } from './components/study-types/study-types.component';
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'study-types', component: StudyTypesComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
 
@@ -19,9 +22,11 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    MenuComponent
+    MenuComponent,
+    StudyTypesComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

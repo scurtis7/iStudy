@@ -1,0 +1,82 @@
+<app-menu pageTitle="Bible Study Methods"></app-menu>
+<div class="body-container">
+  <div class="drop-down-container">
+    <span class="title">Methods:</span>
+    <div class="select-container">
+      <select class="form-select dropdown-font" [(ngModel)]="selectedType">
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Inductive Bible Study Method -->
+  <div *ngIf="selectedType == 'Inductive'" class="category-container">
+    <p class="paragraph-text">
+      The Inductive Bible Study Method is a process by which you make observations of a passage and draw
+      conclusions from those observations.
+    </p>
+    <ul>
+      <li class="paragraph-text"><span class="highlight">Who</span> (who is speaking; who is the intended audience; who is present in the moment, etc.)</li>
+      <li class="paragraph-text"><span class="highlight">What</span> (what is this passage about; what problem is this addressing; what is happening; what is being said; what commands need to be obeyed, etc.)</li>
+      <li class="paragraph-text"><span class="highlight">When</span> (when is this event taking place?)</li>
+      <li class="paragraph-text"><span class="highlight">Where</span> (where is this event taking place, where does it fit in the larger context of the book and Scripture?)</li>
+      <li class="paragraph-text"><span class="highlight">Why</span> (why is this message needed, why is it relevant today?)</li>
+      <li class="paragraph-text"><span class="highlight">How</span> (how does this change what I know about God and humanity; how do I apply this to my life so that I can live more faithfully as a follower of Jesus?)</li>
+      <li class="paragraph-text"><span class="highlight">Questions</span> (Write down things you don't understand.)</li>
+    </ul>
+    <p class="paragraph-text">
+      Many popular Bible study methods are variations of this tried-and-true approach. It’s also
+      important to note that an inductive Bible study doesn’t require asking all of these types of
+      questions every time. All you need are the passages that help you to best understand the
+      meaning of the message and apply it.
+    </p>
+  </div>
+
+  <!-- Topical Bible Study Method -->
+  <div *ngIf="selectedType == 'Topical'" class="category-container">
+    <p class="paragraph-text">
+      As the name suggests, this method helps you to explore in-depth a specific topic or concept within Scripture. To put this method into practice, follow the following steps:
+    </p>
+    <ul>
+      <li class="paragraph-text"><span class="highlight">Choose a topic</span> you want to explore, perhaps a theological concept or aspect of how we’re meant to live as God’s people.</li>
+      <li class="paragraph-text"><span class="highlight">Look up references</span> to this topic (an exhaustive concordance is a helpful tool for this).</li>
+      <li class="paragraph-text"><span class="highlight">Choose the verses</span> you wish to study.</li>
+      <li class="paragraph-text"><span class="highlight">Ask questions</span> about the topic.</li>
+      <li class="paragraph-text"><span class="highlight">Read the verses</span> and see how they address your questions.</li>
+      <li class="paragraph-text"><span class="highlight">Summarize</span> your conclusions.</li>
+      <li class="paragraph-text"><span class="highlight">Write</span> out your application.</li>
+    </ul>
+  </div>
+
+  <!-- Character Study Bible Study Method -->
+  <div *ngIf="selectedType == 'Character Study'" class="category-container">
+    <p class="paragraph-text">
+      Similar to a topical study, this method focuses on a specific biblical character to learn about how God worked in and through that individual and apply what we discover to our lives.
+      Character studies involve the following steps:
+    </p>
+    <ul>
+      <li class="paragraph-text"><span class="highlight">Choose</span> the biblical character you want to study.</li>
+      <li class="paragraph-text"><span class="highlight">Find</span> the relevant passages about him or her.</li>
+      <li class="paragraph-text"><span class="highlight">Read</span> your passages, and consult additional Bible study tools like Bible dictionaries, to learn everything you can about this character
+        (the trustworthy questions who, what, when, where, and how will serve you well here).</li>
+      <li class="paragraph-text"><span class="highlight">Find</span> the application points for your life.</li>
+    </ul>
+  </div>
+
+  <!-- Verse Mapping Bible Study Method -->
+  <div *ngIf="selectedType == 'Verse Mapping'" class="category-container">
+    <p class="paragraph-text">
+      The verse-mapping method of Bible study allows you to study the historical context, transliteration, translation, connotation, and theological framework of a verse in the Bible. After choosing a
+      verse (or verses) to study, do the following:
+    </p>
+    <ul>
+      <li class="paragraph-text"><span class="highlight">Write</span> out your chosen verse(s).</li>
+      <li class="paragraph-text"><span class="highlight">Write</span> them in at least two other translations</li>
+      <li class="paragraph-text"><span class="highlight">Circle</span> keywords to look up in the original languages and write down the definitions, synonyms, and root words.</li>
+      <li class="paragraph-text"><span class="highlight">Explore</span> the meaning and message of the verse or verses as you consider the people, places, and context involved, and make connections to
+        other relevant passages and concepts in Scripture (the cross references in your Bible are ideally suited for this).</li>
+      <li class="paragraph-text"><span class="highlight">Write</span> a 1–2 sentence summary of what you learned and consider how you can apply it.</li>
+    </ul>
+  </div>
+
+</div>
