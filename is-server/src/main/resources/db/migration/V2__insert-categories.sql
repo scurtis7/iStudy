@@ -1,8 +1,5 @@
 INSERT INTO istudy.study_category (name)
-VALUES ('Book'),
-       ('Chapter'),
-       ('Verse'),
-       ('Word'),
+values ('Inductive'),
        ('Topical'),
-       ('Theme'),
-       ('Character');
+       ('Character Study'),
+       ('Verse Mapping');
