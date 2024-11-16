@@ -1,2 +1,60 @@
 @import "../../../assets/styles/variables";
 @import "../../../assets/styles/common";
+
+.main-layout {
+  margin: 10px;
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 60px;
+  align-items: center;
+  //border: red 1px solid;
+}
+
+.header {
+  font-size: 30px;
+  color: $is-blue-4;
+}
+
+.button-container {
+  justify-self: end;
+}
+
+.main-content-table {
+  //margin-left: 10px;
+  //margin-right: 10px;
+  //border: 1px solid red;
+}
+
+.table-container {
+  //margin-top: 20px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  //border: 1px solid red;
+}
+
+.team-table {
+  margin-bottom: 15px;
+  width: 100%;
+  //border: 1px solid red;
+}
+
+.header-cell {
+  border-left: 2px solid $is-white;
+  border-right: 2px solid $is-white;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: $is-white !important;
+  background-color: $is-blue-5 !important;
+}
+
+.table-cell {
+  border: 2px solid white;
+  cursor: pointer;
+  color: $is-blue-4;
+  background-color: $is-grey-4;
+}
+
