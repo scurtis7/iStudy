@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['name', 'method', 'description'];
+  displayedColumns: string[] = ['id', 'name', 'method', 'description', 'created_date'];
   // displayedColumns: string[] = ['name', 'description'];
   dataSource: MatTableDataSource<Study> = new MatTableDataSource<Study>();
 
@@ -34,9 +34,11 @@ export class DashboardComponent implements OnInit {
   private getStudies() {
     this.studies = [
       {
-        "name": "name",
+        "id": 1,
         "method": "method",
-        "description": "description"
+        "name": "name",
+        "description": "description",
+        "created_date": new Date(),
       }
     ]
   }

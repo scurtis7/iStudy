@@ -11,6 +11,12 @@
   <div class="mat-elevation-z8 table-container">
     <table [dataSource]="dataSource" class="team-table" mat-table matSort>
 
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by id">Id</th>
+        <td *matCellDef="let study" class="table-cell" mat-cell> {{ study.id }}</td>
+      </ng-container>
+
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by name">Name</th>
@@ -27,6 +33,12 @@
       <ng-container matColumnDef="description">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by description">Description</th>
         <td *matCellDef="let study" class="table-cell" mat-cell> {{ study.description }}</td>
+      </ng-container>
+
+      <!-- Created Date Column -->
+      <ng-container matColumnDef="created_date">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by created_date">Created</th>
+        <td *matCellDef="let study" class="table-cell" mat-cell> {{ study.created_date | date:'MM/dd/yyyy' }}</td>
       </ng-container>
 
       <tr class="row-height" *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
