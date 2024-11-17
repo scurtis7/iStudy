@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS istudy;
 
-CREATE TABLE istudy.study_category (
-    category_id SERIAL PRIMARY KEY,
+CREATE TABLE istudy.study_method (
+    method_id SERIAL PRIMARY KEY,
     name VARCHAR(16) UNIQUE NOT NULL,
     created_date DATE DEFAULT CURRENT_DATE
 );

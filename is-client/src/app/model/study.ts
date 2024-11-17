@@ -1,5 +1,7 @@
 export class Study {
+  id: number;
+  method_id: number;
   name: string;
-  method: string;
   description: string;
+  created_date: Date;
 }

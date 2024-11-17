@@ -1,7 +1,6 @@
 package com.scurtis.istudy.controller;
 
-import com.scurtis.istudy.dto.StudyCategoryDto;
-import com.scurtis.istudy.entity.StudyCategory;
+import com.scurtis.istudy.dto.StudyMethodDto;
 import com.scurtis.istudy.service.StudyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,9 +15,9 @@ public class StudyController {
 
     private final StudyService studyService;
 
-    @GetMapping(value = "categories")
-    public Flux<StudyCategoryDto> getAllCategories() {
-        return studyService.getAllCategories();
+    @GetMapping(value = "methods")
+    public Flux<StudyMethodDto> getAllStudyMethods() {
+        return studyService.getAllStudyMethods();
     }
 
 }

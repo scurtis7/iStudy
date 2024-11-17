@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from "../../service/http.service";
-import { Category } from "../../model/category";
+import { StudyMethod } from "../../model/study-method";
 
 @Component({
   selector: 'app-study-types',
@@ -10,18 +10,18 @@ import { Category } from "../../model/category";
 export class StudyTypesComponent implements OnInit {
 
   selectedType = '';
-  categories: Category[] = [];
+  categories: StudyMethod[] = [];
 
   constructor(private httpService: HttpService) {
   }
 
   ngOnInit(): void {
-    this.getCategories();
+    this.getMethods();
   }
 
-  getCategories() {
-    this.httpService.getCategories().subscribe({
-      next: (categories: Category[]) => {
+  getMethods() {
+    this.httpService.getStudyMethods().subscribe({
+      next: (categories: StudyMethod[]) => {
         this.categories = categories;
         this.selectedType = categories[0].name;
       }

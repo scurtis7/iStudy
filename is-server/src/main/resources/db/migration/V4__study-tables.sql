@@ -1,8 +1,12 @@
 CREATE TABLE istudy.study (
     study_id SERIAL PRIMARY KEY,
+    method_id INTEGER,
     name VARCHAR(100) NOT NULL,
-    category_id INTEGER NOT NULL,
-    created_date DATE DEFAULT CURRENT_DATE
+    description VARCHAR(100),
+    created_date DATE DEFAULT CURRENT_DATE,
+    CONSTRAINT fk_method
+        FOREIGN KEY(method_id)
+            REFERENCES istudy.study_method(method_id)
 );
 
 CREATE TABLE istudy.study_note (

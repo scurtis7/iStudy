@@ -14,11 +14,11 @@ import org.springframework.data.relational.core.mapping.Table;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(schema = "istudy", name = "study_category")
-public class StudyCategory implements Persistable<Long> {
+@Table(schema = "istudy", name = "study_method")
+public class StudyMethod implements Persistable<Long> {
 
     @Id
-    @Column(value = "category_id")
+    @Column(value = "method_id")
     private Long id;
     private String name;
     @ReadOnlyProperty

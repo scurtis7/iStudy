@@ -1,9 +1,8 @@
 package com.scurtis.istudy.service;
 
-import com.scurtis.istudy.converter.StudyCategoryConverter;
-import com.scurtis.istudy.dto.StudyCategoryDto;
-import com.scurtis.istudy.entity.StudyCategory;
-import com.scurtis.istudy.repository.StudyCategoryRepository;
+import com.scurtis.istudy.converter.StudyMethodConverter;
+import com.scurtis.istudy.dto.StudyMethodDto;
+import com.scurtis.istudy.repository.StudyMethodRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,12 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class StudyService {
 
-    private final StudyCategoryRepository studyCategoryRepository;
-    private final StudyCategoryConverter studyCategoryConverter;
+    private final StudyMethodRepository studyMethodRepository;
+    private final StudyMethodConverter studyMethodConverter;
 
-    public Flux<StudyCategoryDto> getAllCategories() {
-        return studyCategoryRepository.findAll()
-            .map(studyCategoryConverter::toDto);
+    public Flux<StudyMethodDto> getAllStudyMethods() {
+        return studyMethodRepository.findAll()
+            .map(studyMethodConverter::toDto);
     }
 
 }
