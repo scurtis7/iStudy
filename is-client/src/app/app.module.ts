@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { StudyTypesComponent } from './components/study-types/study-types.component';
 import { HttpClientModule } from "@angular/common/http";
+import { NewStudyComponent } from './components/dashboard/new-study/new-study.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     MenuComponent,
-    StudyTypesComponent
+    StudyTypesComponent,
+    NewStudyComponent
   ],
   imports: [
     HttpClientModule,

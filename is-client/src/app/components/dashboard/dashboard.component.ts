@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { Study } from "../../model/study";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { NewStudyComponent } from "./new-study/new-study.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   private studies: Study[];
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -29,6 +31,19 @@ export class DashboardComponent implements OnInit {
   private resetDatasource() {
     this.dataSource.data = this.studies;
     this.dataSource.sort = this.sort;
+  }
+
+  newStudy() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.data = new Study();
+    const dialogRef = this.dialog.open(NewStudyComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        // Save the study here...
+      }
+    });
   }
 
   private getStudies() {

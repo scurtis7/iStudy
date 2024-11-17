@@ -17,6 +17,7 @@ public class StudyService {
     private final StudyMethodConverter studyMethodConverter;
 
     public Flux<StudyMethodDto> getAllStudyMethods() {
+        log.debug("StudyService -> getAllStudyMethods");
         return studyMethodRepository.findAll()
             .map(studyMethodConverter::toDto);
     }

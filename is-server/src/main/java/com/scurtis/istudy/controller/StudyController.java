@@ -17,6 +17,7 @@ public class StudyController {
 
     @GetMapping(value = "methods")
     public Flux<StudyMethodDto> getAllStudyMethods() {
+        log.debug("StudyController -> getAllStudyMethods");
         return studyService.getAllStudyMethods();
     }
 

@@ -1,0 +1,19 @@
+@import "../../../../assets/styles/modal-dialogs.scss";
+
+.body {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-template-rows: repeat(3, 45px);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-dropdown {
+  height: 30px;
+  width: 155px;
+  align-self: center;
+}
+

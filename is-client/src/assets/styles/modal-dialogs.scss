@@ -1,0 +1,36 @@
+@import "./common.scss";
+@import "./variables.scss";
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: $is-blue-5;
+  color: $is-white;
+  //border: 1px solid red;
+}
+
+.body {
+  margin: 10px;
+}
+
+.selection-field {
+  display: grid;
+  grid-template-columns: 120px 300px;
+}
+
+.selection-field-title {
+  color: $is-blue-2;
+  font-size: 16px;
+  align-self: center;
+}
+
+.selection-input {
+  height: 30px;
+  align-self: center;
+}
+
+
