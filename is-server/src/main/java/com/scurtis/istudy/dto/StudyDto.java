@@ -1,5 +1,6 @@
 package com.scurtis.istudy.dto;
 
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudyMethodDto {
+public class StudyDto {
 
     private Long id;
+    private String method;
     private String name;
+    private String description;
+    private LocalDate createdDate;
 
 }

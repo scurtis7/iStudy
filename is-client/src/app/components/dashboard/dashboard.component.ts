@@ -4,6 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Study } from "../../model/study";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { NewStudyComponent } from "./new-study/new-study.component";
+import { HttpService } from "../../service/http.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,17 +16,15 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   displayedColumns: string[] = ['id', 'name', 'method', 'description', 'created_date'];
-  // displayedColumns: string[] = ['name', 'description'];
   dataSource: MatTableDataSource<Study> = new MatTableDataSource<Study>();
 
   private studies: Study[];
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private httpService: HttpService) {
   }
 
   ngOnInit() {
     this.getStudies();
-    this.resetDatasource();
   }
 
   private resetDatasource() {
@@ -40,22 +39,25 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(NewStudyComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
-        // Save the study here...
+        this.httpService.saveStudy(result).subscribe({
+          next: (study: Study) => {
+            this.getStudies();
+          },
+          error: (err: Error) => {
+            console.log(err);
+          }
+        });
       }
     });
   }
 
   private getStudies() {
-    this.studies = [
-      {
-        "id": 1,
-        "method": "method",
-        "name": "name",
-        "description": "description",
-        "created_date": new Date(),
+    this.httpService.getAllStudies().subscribe({
+      next: (studies: Study[]) => {
+        this.studies = studies;
+        this.resetDatasource();
       }
-    ]
+    });
   }
 
 }

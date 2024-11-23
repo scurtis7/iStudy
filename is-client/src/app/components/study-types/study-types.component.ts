@@ -24,6 +24,9 @@ export class StudyTypesComponent implements OnInit {
       next: (categories: StudyMethod[]) => {
         this.categories = categories;
         this.selectedType = categories[0].name;
+      },
+      error: (err: Error) => {
+        console.log(err);
       }
     });
   }

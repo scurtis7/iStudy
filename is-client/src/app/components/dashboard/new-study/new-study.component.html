@@ -2,8 +2,8 @@
 <div mat-dialog-content class="body">
   <div class="selection-field">
     <span class="selection-field-title">Method:</span>
-    <select [(ngModel)]="selectedMethod" class="form-select dropdown-font custom-dropdown">
-      <option *ngFor="let method of methods" [value]="method.id">{{ method.name }}</option>
+    <select [(ngModel)]="study.method" class="form-select dropdown-font custom-dropdown">
+      <option *ngFor="let method of methods" [value]="method.name">{{ method.name }}</option>
     </select>
   </div>
   <div class="selection-field">
