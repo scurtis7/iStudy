@@ -5,6 +5,7 @@ import { Study } from "../../model/study";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { NewStudyComponent } from "./new-study/new-study.component";
 import { HttpService } from "../../service/http.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +16,12 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'name', 'method', 'description', 'createdDate', 'remove'];
+  displayedColumns: string[] = ['remove', 'name', 'method', 'description', 'createdDate'];
   dataSource: MatTableDataSource<Study> = new MatTableDataSource<Study>();
 
   private studies: Study[];
 
-  constructor(private dialog: MatDialog, private httpService: HttpService) {
+  constructor(private dialog: MatDialog, private httpService: HttpService, private router: Router) {
   }
 
   ngOnInit() {
@@ -41,7 +42,6 @@ export class DashboardComponent implements OnInit {
       if (result) {
         this.httpService.saveStudy(result).subscribe({
           next: (study: Study) => {
-            console.log(study);
             this.getStudies();
           },
           error: (err: Error) => {
@@ -53,11 +53,13 @@ export class DashboardComponent implements OnInit {
   }
 
   launchStudy(id: number) {
-    console.log(`Launch study for id: ${id}`);
+    this.router.navigate(
+      ['/study'],
+      { queryParams: { id: id } }
+    );
   }
 
   removeStudy(id: number) {
-    console.log(`Remove study for id: ${id}`);
     this.httpService.deleteStudy(id).subscribe({
       next: (result: any) => {
         this.getStudies();
@@ -71,7 +73,6 @@ export class DashboardComponent implements OnInit {
   private getStudies() {
     this.httpService.getAllStudies().subscribe({
       next: (studies: Study[]) => {
-        console.log(studies);
         this.studies = studies;
         this.resetDatasource();
       }

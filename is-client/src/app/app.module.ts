@@ -15,6 +15,7 @@ import { NewStudyComponent } from './components/dashboard/new-study/new-study.co
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'study', component: DashboardComponent },
   { path: 'study-types', component: StudyTypesComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
