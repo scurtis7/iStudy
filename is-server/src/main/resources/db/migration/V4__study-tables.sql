@@ -1,6 +1,6 @@
 CREATE TABLE istudy.study (
     study_id SERIAL PRIMARY KEY,
-    method VARCHAR(20),
+    method VARCHAR(20) NOT NULL,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(100),
     created_date DATE DEFAULT CURRENT_DATE

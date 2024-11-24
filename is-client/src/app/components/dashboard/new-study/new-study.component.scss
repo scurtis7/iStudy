@@ -3,7 +3,7 @@
 .body {
   display: grid;
   grid-auto-columns: auto;
-  grid-template-rows: repeat(3, 45px);
+  grid-auto-rows: 40px;
 }
 
 .button-container {

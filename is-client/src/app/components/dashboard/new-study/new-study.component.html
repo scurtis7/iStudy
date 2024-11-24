@@ -1,19 +1,32 @@
 <h1 mat-dialog-title class="title">New Study</h1>
 <div mat-dialog-content class="body">
+
   <div class="selection-field">
     <span class="selection-field-title">Method:</span>
     <select [(ngModel)]="study.method" class="form-select dropdown-font custom-dropdown">
+      <option value="" disabled>Select Method...</option>
       <option *ngFor="let method of methods" [value]="method.name">{{ method.name }}</option>
     </select>
   </div>
+  <div class="selection-field" *ngIf="studyMethodError">
+    <span></span>
+    <span class="error-field">Please select a study method</span>
+  </div>
+
   <div class="selection-field">
     <span class="selection-field-title">Name:</span>
     <input [(ngModel)]="study.name" class="form-control selection-input" type="text">
   </div>
+  <div class="selection-field" *ngIf="studyNameError">
+    <span></span>
+    <span class="error-field">Please enter a name for the study</span>
+  </div>
+
   <div class="selection-field">
     <span class="selection-field-title">Description:</span>
     <input [(ngModel)]="study.description" class="form-control selection-input" type="text">
   </div>
+
 </div>
 <div mat-dialog-actions class="button-container">
   <button mat-button class="is-button" (click)="close(true)">Save</button>

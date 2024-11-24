@@ -12,7 +12,9 @@ import { HttpErrorResponse } from "@angular/common/http";
 })
 export class NewStudyComponent implements OnInit {
 
-  selectedMethod: string;
+  studyMethodError = false;
+  studyNameError = false;
+
   methods: StudyMethod[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public study: Study, public dialogRef: MatDialogRef<NewStudyComponent>,
@@ -20,22 +22,31 @@ export class NewStudyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.study.method = '';
     this.getStudyMethods();
   }
 
   close(save: boolean) {
     if (save) {
-      // this.study.method = this.setMethod();
-      this.dialogRef.close(this.study);
+      if (this.isStudyValid()) {
+        this.dialogRef.close(this.study);
+      }
     } else {
       this.dialogRef.close(null);
     }
   }
 
-  // private setMethod(): string {
-  //   const method =  this.methods.find(method => method.id == this.selectedMethod);
-  //   return method.name;
-  // }
+  private isStudyValid(): boolean {
+    this.studyMethodError = false;
+    this.studyNameError = false;
+    if (this.study.method == undefined || this.study.method == '') {
+      this.studyMethodError = true;
+    }
+    if (this.study.name == undefined || this.study.name == '') {
+      this.studyNameError = true;
+    }
+    return !this.studyMethodError && !this.studyNameError;
+  }
 
   private getStudyMethods() {
     this.httpService.getStudyMethods().subscribe({
