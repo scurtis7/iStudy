@@ -35,6 +35,12 @@ public class StudyController {
         return studyService.getAllStudies();
     }
 
+    @GetMapping(value = "study/{id}")
+    public Mono<StudyDto> getStudyById(@PathVariable Long id) {
+        log.debug("StudyController -> getStudyById");
+        return studyService.getStudyById(id);
+    }
+
     @PostMapping(value = "study")
     public Mono<StudyDto> saveStudy(@RequestBody StudyDto studyDto) {
         log.debug("StudyController -> saveStudy");

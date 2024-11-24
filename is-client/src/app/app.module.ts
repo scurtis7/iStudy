@@ -12,10 +12,11 @@ import { MenuComponent } from './components/shared/menu/menu.component';
 import { StudyTypesComponent } from './components/study-types/study-types.component';
 import { HttpClientModule } from "@angular/common/http";
 import { NewStudyComponent } from './components/dashboard/new-study/new-study.component';
+import { StudyComponent } from './components/study/study.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'study', component: DashboardComponent },
+  { path: 'study', component: StudyComponent },
   { path: 'study-types', component: StudyTypesComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
@@ -26,7 +27,8 @@ const routes: Routes = [
     DashboardComponent,
     MenuComponent,
     StudyTypesComponent,
-    NewStudyComponent
+    NewStudyComponent,
+    StudyComponent
   ],
   imports: [
     HttpClientModule,

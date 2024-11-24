@@ -40,6 +40,12 @@ public class StudyService {
             .map(studyConverter::toDto);
     }
 
+    public Mono<StudyDto> getStudyById(Long id) {
+        log.debug("StudyService - getStudyById");
+        return studyRepository.findById(id)
+            .map(studyConverter::toDto);
+    }
+
     public Mono<StudyDto> saveStudy(StudyDto studyDto) {
         log.debug("StudyService - saveStudy");
         return studyRepository.save(studyConverter.toEntity(studyDto))

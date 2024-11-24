@@ -20,6 +20,10 @@ export class HttpService {
     return this.http.get<Study[]>(`http://localhost:8080/study`);
   }
 
+  public getStudyById(id: number): Observable<Study> {
+    return this.http.get<Study>(`http://localhost:8080/study/${id}`);
+  }
+
   public saveStudy(study: Study): Observable<Study> {
     return this.http.post<Study>(`http://localhost:8080/study`, study);
   }
