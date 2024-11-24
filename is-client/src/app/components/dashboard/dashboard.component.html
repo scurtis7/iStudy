@@ -38,7 +38,7 @@
       <!-- Created Date Column -->
       <ng-container matColumnDef="created_date">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by created_date">Created</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell> {{ study.created_date | date:'MM/dd/yyyy' }}</td>
+        <td *matCellDef="let study" class="table-cell" mat-cell> {{ study.createdDate | date:'M/d/yyyy' }}</td>
       </ng-container>
 
       <tr class="row-height" *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

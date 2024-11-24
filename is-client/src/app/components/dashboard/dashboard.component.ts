@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
       if (result) {
         this.httpService.saveStudy(result).subscribe({
           next: (study: Study) => {
+            console.log(study);
             this.getStudies();
           },
           error: (err: Error) => {
@@ -54,6 +55,7 @@ export class DashboardComponent implements OnInit {
   private getStudies() {
     this.httpService.getAllStudies().subscribe({
       next: (studies: Study[]) => {
+        console.log(studies);
         this.studies = studies;
         this.resetDatasource();
       }

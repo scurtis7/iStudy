@@ -3,5 +3,5 @@ export class Study {
   method: string;
   name: string;
   description: string;
-  created_date: Date;
+  createdDate: string;
 }
