@@ -46,6 +46,11 @@ public class StudyService {
             .map(studyConverter::toDto);
     }
 
+    public Mono<Void> deleteStudy(Long id) {
+        log.debug("StudyService - deleteStudy");
+        return studyRepository.deleteById(id);
+    }
+
     public Flux<BookDto> getAllBooks() {
         log.debug("StudyService -> getAllBooks");
         return bookRepository.findAll()

@@ -24,4 +24,8 @@ export class HttpService {
     return this.http.post<Study>(`http://localhost:8080/study`, study);
   }
 
+  public deleteStudy(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/study/${id}`);
+  }
+
 }

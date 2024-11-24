@@ -6,7 +6,10 @@ import com.scurtis.istudy.dto.StudyMethodDto;
 import com.scurtis.istudy.service.StudyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +39,12 @@ public class StudyController {
     public Mono<StudyDto> saveStudy(@RequestBody StudyDto studyDto) {
         log.debug("StudyController -> saveStudy");
         return studyService.saveStudy(studyDto);
+    }
+
+    @DeleteMapping(value = "study/{id}")
+    public Mono<Void> deleteStudy(@PathVariable Long id) {
+        log.debug("StudyController -> deleteStudy: {}", id);
+        return studyService.deleteStudy(id);
     }
 
     @GetMapping(value = "book")

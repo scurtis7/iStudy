@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'name', 'method', 'description', 'created_date'];
+  displayedColumns: string[] = ['id', 'name', 'method', 'description', 'createdDate', 'remove'];
   dataSource: MatTableDataSource<Study> = new MatTableDataSource<Study>();
 
   private studies: Study[];
@@ -48,6 +48,22 @@ export class DashboardComponent implements OnInit {
             console.log(err);
           }
         });
+      }
+    });
+  }
+
+  launchStudy(id: number) {
+    console.log(`Launch study for id: ${id}`);
+  }
+
+  removeStudy(id: number) {
+    console.log(`Remove study for id: ${id}`);
+    this.httpService.deleteStudy(id).subscribe({
+      next: (result: any) => {
+        this.getStudies();
+      },
+      error: (err: Error) => {
+        console.log(err);
       }
     });
   }

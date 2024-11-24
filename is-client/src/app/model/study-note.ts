@@ -1,7 +1,7 @@
 export class StudyNote {
   id: number;
-  study_id: number;
+  studyId: number;
   verse: string;
   note: string;
-  created_date: Date;
+  createdDate: string;
 }
