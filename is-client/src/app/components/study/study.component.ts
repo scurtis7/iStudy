@@ -33,4 +33,7 @@ export class StudyComponent implements OnInit {
     });
   }
 
+  newNote() {
+  }
+
 }
