@@ -5,15 +5,20 @@
   display: grid;
   grid-template-columns: 500px auto;
   grid-row-gap: 5px;
-  background-color: $is-grey-4;
-  border: 1px solid $is-blue-6;
+  background-color: $is-blue-6;
+  border: 1px solid $is-blue-4;
   border-radius: 5px;
   padding: 10px;
 }
 
-.header-column {
+.left-header-column {
   display: grid;
-  grid-template-columns: 90px auto;
+  grid-template-columns: 67px auto;
+}
+
+.right-header-column {
+  display: grid;
+  grid-template-columns: 93px auto;
 }
 
 .header-label {
@@ -24,10 +29,11 @@
 
 .header-field {
   font-size: 18px;
-  color: $is-blue-4;
+  color: $is-blue-2;
   justify-self: start;
 }
 
 .new-note-button {
   margin-top: 10px;
+  width: 95px;
 }

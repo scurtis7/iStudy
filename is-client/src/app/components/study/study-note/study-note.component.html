@@ -1,0 +1,11 @@
+<div class="body">
+  <button (click)="editNote()" class="is-button study-note-button" mat-button>{{ buttonTitle }}</button>
+  <div class="verse-container">
+    <input *ngIf="showEditControls" [(ngModel)]="verse" class="form-control verse-input" type="text">
+    <span class="note-text" *ngIf="!showEditControls">{{ verse }}</span>
+  </div>
+  <div class="note-container">
+    <input *ngIf="showEditControls" [(ngModel)]="note" class="form-control" type="text">
+    <span class="note-text" *ngIf="!showEditControls">{{ note }}</span>
+  </div>
+</div>

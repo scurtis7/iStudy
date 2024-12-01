@@ -13,6 +13,7 @@ import { StudyTypesComponent } from './components/study-types/study-types.compon
 import { HttpClientModule } from "@angular/common/http";
 import { NewStudyComponent } from './components/dashboard/new-study/new-study.component';
 import { StudyComponent } from './components/study/study.component';
+import { StudyNoteComponent } from './components/study/study-note/study-note.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
     MenuComponent,
     StudyTypesComponent,
     NewStudyComponent,
-    StudyComponent
+    StudyComponent,
+    StudyNoteComponent
   ],
   imports: [
     HttpClientModule,

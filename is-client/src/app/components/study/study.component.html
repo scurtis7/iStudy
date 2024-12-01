@@ -1,23 +1,26 @@
 <app-menu pageTitle="Bible Study"></app-menu>
 <div class="body-container">
   <div class="header">
-    <div class="header-column">
+    <div class="left-header-column">
       <span class="header-label">Name:</span>
       <span class="header-field">{{study.name}}</span>
     </div>
-    <div class="header-column">
+    <div class="right-header-column">
       <span class="header-label">Description:</span>
       <span class="header-field">{{study.description}}</span>
     </div>
-    <div class="header-column">
+    <div class="left-header-column">
       <span class="header-label">Method:</span>
       <span class="header-field">{{study.method}}</span>
     </div>
-    <div class="header-column">
+    <div class="right-header-column">
       <span class="header-label">Created:</span>
       <span class="header-field">{{study.createdDate}}</span>
     </div>
+    <button (click)="newNote()" class="is-button new-note-button" mat-button>New Note</button>
   </div>
-  <button (click)="newNote()" class="is-button new-note-button" mat-button>New Note</button>
+  <div>
+    <app-study-note></app-study-note>
+  </div>
 
 </div>
