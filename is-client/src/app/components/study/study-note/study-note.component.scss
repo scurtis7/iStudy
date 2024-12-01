@@ -9,9 +9,26 @@
   margin-top: 10px;
 }
 
+.minimized {
+  background-color: $is-grey-4;
+  border: 1px solid $is-blue-6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-column-gap: 10px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  grid-column-gap: 10px;
+}
+
 .study-note-button {
   margin-bottom: 10px;
-  width: 95px;
+  width: 110px;
 }
 
 .verse-container {
@@ -27,4 +44,14 @@
 
 .note-text {
   color: $is-blue-2;
+  min-height: 200px;
+}
+
+.note-span {
+  color: $is-blue-2;
+}
+
+.show-hide-icon {
+  cursor: pointer;
+  align-self: center;
 }

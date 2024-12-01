@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudyNoteComponent implements OnInit {
 
-  showEditControls = false;
-  buttonTitle = 'Edit Note';
-
+  noteMinimized = false;
   verse = 'Genesis 1:1 - 1:5 ';
   note = 'In the beginning God created the heavens and the earth.';
 
@@ -19,13 +17,14 @@ export class StudyNoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editNote() {
-    this.showEditControls = !this.showEditControls;
-    if (this.showEditControls) {
-      this.buttonTitle = 'Save Note';
-    } else {
-      this.buttonTitle = 'Edit Note';
-    }
+  saveNote() {
+  }
+
+  deleteNote() {
+  }
+
+  minimizeNote() {
+    this.noteMinimized = !this.noteMinimized;
   }
 
 }

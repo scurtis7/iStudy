@@ -1,11 +1,17 @@
-<div class="body">
-  <button (click)="editNote()" class="is-button study-note-button" mat-button>{{ buttonTitle }}</button>
+<div class="body" *ngIf="!noteMinimized">
+  <div class="button-container">
+    <mat-icon *ngIf="true" (click)="minimizeNote()" class="show-hide-icon">remove</mat-icon>
+    <button (click)="saveNote()" class="is-button study-note-button" mat-button>Save Note</button>
+    <button (click)="deleteNote()" class="is-button study-note-button" mat-button>Delete Note</button>
+  </div>
   <div class="verse-container">
-    <input *ngIf="showEditControls" [(ngModel)]="verse" class="form-control verse-input" type="text">
-    <span class="note-text" *ngIf="!showEditControls">{{ verse }}</span>
+    <input [(ngModel)]="verse" class="form-control verse-input" type="text">
   </div>
   <div class="note-container">
-    <input *ngIf="showEditControls" [(ngModel)]="note" class="form-control" type="text">
-    <span class="note-text" *ngIf="!showEditControls">{{ note }}</span>
+    <textarea [(ngModel)]="note" class="form-control note-text"></textarea>
   </div>
+</div>
+<div class="minimized" *ngIf="noteMinimized">
+  <mat-icon *ngIf="true" (click)="minimizeNote()" class="show-hide-icon">add</mat-icon>
+  <input [(ngModel)]="verse" class="form-control verse-input" type="text">
 </div>
