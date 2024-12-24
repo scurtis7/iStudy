@@ -10,7 +10,7 @@ import { MaterialModule } from "./common/material.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { StudyTypesComponent } from './components/study-types/study-types.component';
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { NewStudyComponent } from './components/dashboard/new-study/new-study.component';
 import { StudyComponent } from './components/study/study.component';
 import { StudyNoteComponent } from './components/study/study-note/study-note.component';
@@ -33,16 +33,17 @@ const routes: Routes = [
     StudyNoteComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)], providers: [
+    provideAnimationsAsync(),
+    provideHttpClient(withInterceptorsFromDi())
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
