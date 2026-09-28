@@ -1,21 +1,9 @@
-<div class="mat-elevation-z8 header-container">
+<div class="elevated header-container">
   <div class="menu-content">
-    <button class="menu-button" [matMenuTriggerFor]="menu" mat-button>
-      <mat-icon class="hamburger">menu</mat-icon>
+    <button class="menu-button" (click)="menu.toggle($event)">
+      <i class="pi pi-bars hamburger"></i>
     </button>
-    <mat-menu #menu="matMenu">
-      <mat-nav-list>
-        <mat-list-item class="menu-list-item" routerLink="/dashboard">
-          <span class="menu-item" matLine>Dashboard</span>
-        </mat-list-item>
-        <mat-list-item class="menu-list-item" routerLink="/study-types">
-          <span class="menu-item" matLine>Study Methods</span>
-        </mat-list-item>
-        <mat-list-item class="menu-list-item" routerLink="/admin">
-          <span class="menu-item" matLine>Administration</span>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-menu>
+    <p-menu #menu [model]="menuItems" [popup]="true"></p-menu>
   </div>
   <span class="page-title"> {{pageTitle}} </span>
   <span class="header-title">iStudy</span>

@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { Component, OnInit } from '@angular/core';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Study } from "../../../model/study";
 import { StudyMethod } from "../../../model/study-method";
 import { HttpService } from "../../../service/http.service";
@@ -15,10 +15,12 @@ export class NewStudyComponent implements OnInit {
   studyMethodError = false;
   studyNameError = false;
 
+  study: Study;
   methods: StudyMethod[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public study: Study, public dialogRef: MatDialogRef<NewStudyComponent>,
+  constructor(public dialogRef: DynamicDialogRef, public dialogConfig: DynamicDialogConfig,
               public httpService: HttpService) {
+    this.study = this.dialogConfig.data;
   }
 
   ngOnInit(): void {

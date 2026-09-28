@@ -4,45 +4,30 @@
   <div class="header-container">
     <span class="header">Bible Studies</span>
     <div class="button-container">
-      <button (click)="newStudy()" class="is-button" mat-button>New Study</button>
+      <button pButton (click)="newStudy()" class="is-button">New Study</button>
     </div>
   </div>
 
-  <div class="mat-elevation-z8 table-container">
-    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
-
-      <!-- Remove Column -->
-      <ng-container matColumnDef="remove">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell>Delete</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell style="width: 20px" (click)="removeStudy(study.id)"><mat-icon>delete</mat-icon></td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by name">Name</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell (click)="launchStudy(study.id)"> {{ study.name }}</td>
-      </ng-container>
-
-      <!-- Method Column -->
-      <ng-container matColumnDef="method">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by method">Method</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell (click)="launchStudy(study.id)"> {{ study.method }}</td>
-      </ng-container>
-
-      <!-- Description Column -->
-      <ng-container matColumnDef="description">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by description">Description</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell (click)="launchStudy(study.id)"> {{ study.description }}</td>
-      </ng-container>
-
-      <!-- Created Date Column -->
-      <ng-container matColumnDef="createdDate">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by createdDate">Created</th>
-        <td *matCellDef="let study" class="table-cell" mat-cell style="width: 50px" (click)="launchStudy(study.id)"> {{ study.createdDate | date:'M/d/yyyy' }}</td>
-      </ng-container>
-
-      <tr class="row-height" *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
-      <tr class="row-height" *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
-    </table>
+  <div class="elevated table-container">
+    <p-table [value]="studies" class="team-table">
+      <ng-template pTemplate="header">
+        <tr class="row-height">
+          <th class="header-cell" style="width: 50px">Delete</th>
+          <th class="header-cell" pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+          <th class="header-cell" pSortableColumn="method">Method <p-sortIcon field="method"></p-sortIcon></th>
+          <th class="header-cell" pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+          <th class="header-cell" style="width: 100px" pSortableColumn="createdDate">Created <p-sortIcon field="createdDate"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-study>
+        <tr class="row-height">
+          <td class="table-cell" style="width: 50px" (click)="removeStudy(study.id)"><i class="pi pi-trash"></i></td>
+          <td class="table-cell" (click)="launchStudy(study.id)">{{ study.name }}</td>
+          <td class="table-cell" (click)="launchStudy(study.id)">{{ study.method }}</td>
+          <td class="table-cell" (click)="launchStudy(study.id)">{{ study.description }}</td>
+          <td class="table-cell" style="width: 100px" (click)="launchStudy(study.id)">{{ study.createdDate | date:'M/d/yyyy' }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 </div>

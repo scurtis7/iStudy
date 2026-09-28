@@ -1,8 +1,8 @@
 <div class="body" *ngIf="!noteMinimized">
   <div class="button-container">
-    <mat-icon *ngIf="true" (click)="minimizeNote()" class="show-hide-icon">remove</mat-icon>
-    <button (click)="saveNote()" class="is-button study-note-button" mat-button>Save Note</button>
-    <button (click)="deleteNote()" class="is-button study-note-button" mat-button>Delete Note</button>
+    <i *ngIf="true" (click)="minimizeNote()" class="pi pi-minus show-hide-icon"></i>
+    <button pButton (click)="saveNote()" class="is-button study-note-button">Save Note</button>
+    <button pButton (click)="deleteNote()" class="is-button study-note-button">Delete Note</button>
   </div>
   <div class="verse-container">
     <input [(ngModel)]="verse" class="form-control verse-input" type="text">
@@ -12,6 +12,6 @@
   </div>
 </div>
 <div class="minimized" *ngIf="noteMinimized">
-  <mat-icon *ngIf="true" (click)="minimizeNote()" class="show-hide-icon">add</mat-icon>
+  <i *ngIf="true" (click)="minimizeNote()" class="pi pi-plus show-hide-icon"></i>
   <input [(ngModel)]="verse" class="form-control verse-input" type="text">
 </div>
